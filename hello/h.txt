@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 Omkar Sudarshan Gujja
+=======
+omkar gujja
+>>>>>>> parent of 1542e74... added sudarshan in h
