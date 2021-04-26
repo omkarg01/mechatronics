@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+<title>Handwritten Digit Recognition by using CNN | LaptrinhX</title>
+<meta charset="utf-8" />
+<meta name="theme-color" content="#ffffff" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<script src="/cdn-cgi/apps/head/jIlzOie5FGqRRFKnhOivm6iDlHE.js"></script><link rel="shortcut icon" href="https://laptrinhx.com/cdn/favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://laptrinhx.com/cdn/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://laptrinhx.com/cdn/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://laptrinhx.com/cdn/favicon-16x16.png">
+<link rel="manifest" href="https://laptrinhx.com/cdn/site.webmanifest">
+<meta name="HandheldFriendly" content="True" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+<meta name="google-site-verification" content="zZvRn03YFpea4p0DJfF2Wlk_l8h1UwwHb0UdUniQHRs" />
+<meta name="msvalidate.01" content="20657D0D1E4F14A48D0775EBD78ED655" />
+<meta name="yandex-verification" content="8687f764ac4432be" />
+<meta name="twitter:site" content="LaptrinhX" />
+<meta name="twitter:title" content="Handwritten Digit Recognition by using CNN" />
+<meta property="article:publisher" content="https://www.facebook.com/LaptrinhX-1909354179164106/" />
+<meta property="fb:app_id" content="207946532970943" />
+<meta property="og:site_name" content="LaptrinhX" />
+<meta http-equiv="REFRESH" content="2400" />
+<meta name="robots" content="index,follow">
+<meta name="author" content="LaptrinhX" />
+<link rel="stylesheet" type="text/css" href="https://laptrinhx.com/cdn/custom.css?v=0.905" /> <meta property="article:tag" content="mc ai" /><meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<link rel="canonical" href="https://laptrinhx.com/handwritten-digit-recognition-by-using-cnn-4252465561/" />
+<link rel="amphtml" href="https://laptrinhx.com/handwritten-digit-recognition-by-using-cnn-4252465561/amp/" />
+<meta name="keywords" content="mc ai,laptrinhx,ltx,lap trinh,bdev,bdev.dev,blog,programming,open source,software,technology,it jobs,programmer,video,learning,ebooks,web,news,security,iot,machine learning,seo,dev,funny,development,congnghe" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Handwritten Digit Recognition by using CNN" />
+<meta property="og:description" content="Original article was published on Deep Learning on Medium Handwritten Digit Recognition by using CNN We can recognize the hand written digits from the famous mnist dataset..." />
+<meta property="og:url" content="https://laptrinhx.com/handwritten-digit-recognition-by-using-cnn-4252465561/" />
+<meta property="article:published_time" content="2020-05-21T14:56:53+07:00" />
+<meta property="og:image" content="https://miro.medium.com/max/1000/1*CnNorCR4Zdq7pVchdsRGyw.png" />
+<meta property="og:image:url" content="https://miro.medium.com/max/1000/1*CnNorCR4Zdq7pVchdsRGyw.png" />
+<meta name="twitter:image" content="https://miro.medium.com/max/1000/1*CnNorCR4Zdq7pVchdsRGyw.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="Original article was published on Deep Learning on Medium Handwritten Digit Recognition by using CNN We can recognize the hand written digits from the famous mnist dataset..." />
+<meta name="twitter:url" content="https://laptrinhx.com/handwritten-digit-recognition-by-using-cnn-4252465561/" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="CHM" />
+<meta name="twitter:label2" content="Filed under" />
+<meta name="twitter:data2" content="mc ai" />
+<link rel="alternate" type="application/rss+xml" title="LaptrinhX" href="https://laptrinhx.com/rss/" />
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","publisher":{"@type":"Organization","name":"LaptrinhX","logo":"https:\/\/laptrinhx.com\/cdn\/favicon.ico"},"author":[{"@type":"Person","name":"CHM","url":"https:\/\/laptrinhx.com\/author\/chm\/"}],"headline":"Handwritten Digit Recognition by using CNN","url":"https:\/\/laptrinhx.com\/handwritten-digit-recognition-by-using-cnn-4252465561\/","datePublished":"2020-05-21T14:56:53+07:00","keywords":"mc ai","description":"Original article was published on Deep Learning on Medium Handwritten Digit Recognition by using CNN We can recognize the hand written digits from the famous mnist dataset...","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/laptrinhx.com"},"image":"https:\/\/miro.medium.com\/max\/1000\/1*CnNorCR4Zdq7pVchdsRGyw.png"}</script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/dark-mode-toggle@0.8.0/dist/dark-mode-toggle.min.mjs"></script> <script type="text/javascript" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" data-ad-client="ca-pub-2026110378062824" async></script></head>
+<body class="post-template">
+<div class="site-wrapper">
+<header class="site-header outer no-image">
+<div class="inner">
+<nav class="site-nav" data-sticky-class="sticky-nav">
+<div class="site-nav-left">
+<div class="panel-mg-menu">
+<a class="site-nav-logo" href="https://laptrinhx.com/">LaptrinhX</a>
+<div class="mg-menu mg-fadeIn mg-animate mg-home">
+<svg onclick="ajaxRefresh('home')" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 18c4.667 4.667 12 1.833 12-4.042h-3l5-6 5 6h-3c-1.125 7.98-11.594 11.104-16 4.042zm14-11.984c-4.667-4.667-12-1.834-12 4.041h3l-5 6-5-6h3c1.125-7.979 11.594-11.104 16-4.041z" /></svg> <div class="mg-top top-home"></div>
+</div> </div>
+<ul class="nav" role="menu" id="nav_left">
+<li class="gradient-effect"><a href="#">My<svg data-cy="arrow-down-small-icon" viewBox="0 0 26 17"><path d="M1.469 2.18l11.5 13.143 11.5-13.143" stroke-width="3" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></li>
+<li class="nav-tags gradient-effect" role="menuitem"><a href="https://laptrinhx.com/news/">News</a></li>
+<li class="nav-tags gradient-effect" role="menuitem"><a href="https://laptrinhx.com/tags/">Tag</a></li>
+<li class="nav-authors gradient-effect" role="menuitem"><a href="https://laptrinhx.com/authors/">Author</a></li>
+<li class="nav-ebooks gradient-effect" role="menuitem">
+<div class="panel-mg-menu">
+<a href="https://laptrinhx.com/tag/ebooks/">Ebook</a>
+<div class="mg-menu mg-fadeIn mg-animate mg-ebooks">
+<svg onclick="ajaxRefresh('ebooks')" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 18c4.667 4.667 12 1.833 12-4.042h-3l5-6 5 6h-3c-1.125 7.98-11.594 11.104-16 4.042zm14-11.984c-4.667-4.667-12-1.834-12 4.041h3l-5 6-5-6h3c1.125-7.979 11.594-11.104 16-4.041z" /></svg> <div class="mg-top top-ebooks"></div>
+</div> </div>
+</li>
+<li class="nav-themes gradient-effect" role="menuitem">
+<div class="panel-mg-menu">
+<a href="https://laptrinhx.com/tag/theme-templates/">Theme</a>
+<div class="mg-menu mg-fadeIn mg-animate mg-themes">
+<svg onclick="ajaxRefresh('themes')" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 18c4.667 4.667 12 1.833 12-4.042h-3l5-6 5 6h-3c-1.125 7.98-11.594 11.104-16 4.042zm14-11.984c-4.667-4.667-12-1.834-12 4.041h3l-5 6-5-6h3c1.125-7.979 11.594-11.104 16-4.041z" /></svg> <div class="mg-top top-themes"></div>
+</div> </div>
+</li>
+<li class="nav-tutorials gradient-effect" role="menuitem">
+<div class="panel-mg-menu">
+<a href="https://laptrinhx.com/tag/tutorials/">Tutorial</a>
+<div class="mg-menu mg-fadeIn mg-animate mg-tutorials">
+<svg onclick="ajaxRefresh('tutorials')" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 18c4.667 4.667 12 1.833 12-4.042h-3l5-6 5 6h-3c-1.125 7.98-11.594 11.104-16 4.042zm14-11.984c-4.667-4.667-12-1.834-12 4.041h3l-5 6-5-6h3c1.125-7.979 11.594-11.104 16-4.041z" /></svg> <div class="mg-top top-tutorials"></div>
+</div> </div>
+</li>
+<li class="nav-funny-vl gradient-effect" role="menuitem">
+<div class="panel-mg-menu">
+<a href="https://laptrinhx.com/tag/funny-vl/">Funny</a>
+<div class="mg-menu mg-fadeIn mg-animate mg-funny">
+<svg onclick="ajaxRefresh('funny')" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 18c4.667 4.667 12 1.833 12-4.042h-3l5-6 5 6h-3c-1.125 7.98-11.594 11.104-16 4.042zm14-11.984c-4.667-4.667-12-1.834-12 4.041h3l-5 6-5-6h3c1.125-7.979 11.594-11.104 16-4.041z" /></svg> <div class="mg-top top-funny"></div>
+</div> </div>
+</li>
+<li class="nav-it-jobs gradient-effect" role="menuitem">
+<div class="panel-mg-menu">
+<a href="https://laptrinhx.com/tag/it-jobs/">IT Job</a>
+<div class="mg-menu mg-fadeIn mg-animate mg-it-jobs">
+<svg onclick="ajaxRefresh('it-jobs')" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 18c4.667 4.667 12 1.833 12-4.042h-3l5-6 5 6h-3c-1.125 7.98-11.594 11.104-16 4.042zm14-11.984c-4.667-4.667-12-1.834-12 4.041h3l-5 6-5-6h3c1.125-7.979 11.594-11.104 16-4.041z" /></svg> <div class="mg-top top-it-jobs"></div>
+</div> </div>
+</li>
+<li class="nav-it-videos gradient-effect" role="menuitem">
+<div class="panel-mg-menu">
+<a href="https://laptrinhx.com/tag/videos-ltx/">Video</a>
+<div class="mg-menu mg-fadeIn mg-animate mg-videos">
+<svg onclick="ajaxRefresh('videos')" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 18c4.667 4.667 12 1.833 12-4.042h-3l5-6 5 6h-3c-1.125 7.98-11.594 11.104-16 4.042zm14-11.984c-4.667-4.667-12-1.834-12 4.041h3l-5 6-5-6h3c1.125-7.979 11.594-11.104 16-4.041z" /></svg> <div class="mg-top top-videos"></div>
+</div> </div>
+</li>
+<li class="nav-more gradient-effect dropdown" role="menuitem"><a href="#"><svg style="fill:#fff;width:30px" role="img" viewBox="0 0 20 4" xmlns="http://www.w3.org/2000/svg"><path d="M2 4A2 2 0 102.001.001 2 2 0 002 4zm8 0a2 2 0 10.001-3.999A2 2 0 0010 4zm8 0a2 2 0 10.001-3.999A2 2 0 0018 4z"></path></svg></a></li>
+</ul>
+</div>
+<div class="site-nav-right" id="nav_right">
+<a href="https://laptrinhx.com/search/" class="social-link search-icon" title="Search Post for...">
+<svg viewBox="0 0 32 32" aria-hidden="true">
+<path d="M27 24.57l-5.647-5.648a8.895 8.895 0 0 0 1.522-4.984C22.875 9.01 18.867 5 13.938 5 9.01 5 5 9.01 5 13.938c0 4.929 4.01 8.938 8.938 8.938a8.887 8.887 0 0 0 4.984-1.522L24.568 27 27 24.57zm-13.062-4.445a6.194 6.194 0 0 1-6.188-6.188 6.195 6.195 0 0 1 6.188-6.188 6.195 6.195 0 0 1 6.188 6.188 6.195 6.195 0 0 1-6.188 6.188z" />
+</svg> </a>
+<a href="https://laptrinhx.com/archive/" class="social-link calendar-icon" title="Archive Post">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 20h-4v-4h4v4zm-6-10h-4v4h4v-4zm6 0h-4v4h4v-4zm-12 6h-4v4h4v-4zm6 0h-4v4h4v-4zm-6-6h-4v4h4v-4zm16-8v22h-24v-22h3v1c0 1.103.897 2 2 2s2-.897 2-2v-1h10v1c0 1.103.897 2 2 2s2-.897 2-2v-1h3zm-2 6h-20v14h20v-14zm-2-7c0-.552-.447-1-1-1s-1 .448-1 1v2c0 .552.447 1 1 1s1-.448 1-1v-2zm-14 2c0 .552-.447 1-1 1s-1-.448-1-1v-2c0-.552.447-1 1-1s1 .448 1 1v2z" /></svg> </a>
+<dark-mode-toggle permanent=true title="Light/Dark mode"></dark-mode-toggle>
+<a id="new_post" href="https://laptrinhx.com/" class="social-link" title="New posts">
+<svg width="22px" viewBox="0 0 20 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+<g transform="translate(-714.000000, -910.000000)">
+<g transform="translate(100.000000, 852.000000)">
+<g transform="translate(612.000000, 54.000000)">
+<g>
+<rect x="0" y="0"></rect>
+<path d="M20,4 L4,4 C2.89,4 2.01,4.89 2.01,6 L2,18 C2,19.11 2.89,20 4,20 L20,20 C21.11,20 22,19.11 22,18 L22,6 C22,4.89 21.11,4 20,4 Z M8.5,14.21 C8.5,14.64 8.14,15 7.71,15 C7.46,15 7.22,14.88 7.07,14.67 L4.75,11.5 L4.75,14.38 C4.75,14.73 4.47,15 4.13,15 C3.79,15 3.5,14.72 3.5,14.38 L3.5,9.79 C3.5,9.36 3.86,9 4.29,9 L4.34,9 C4.6,9 4.84,9.12 4.99,9.33 L7.25,12.5 L7.25,9.62 C7.25,9.28 7.53,9 7.88,9 C8.23,9 8.5,9.28 8.5,9.62 L8.5,14.21 Z M13.5,9.64 C13.5,9.99 13.22,10.26 12.88,10.26 L11,10.26 L11,11.38 L12.88,11.38 C13.23,11.38 13.5,11.66 13.5,12 L13.5,12.01 C13.5,12.36 13.22,12.63 12.88,12.63 L11,12.63 L11,13.74 L12.88,13.74 C13.23,13.74 13.5,14.02 13.5,14.36 C13.5,14.71 13.22,14.98 12.88,14.98 L10.35,14.98 C9.88,14.98 9.5,14.6 9.5,14.13 L9.5,9.83 C9.5,9.38 9.88,9 10.35,9 L12.88,9 C13.23,9 13.5,9.28 13.5,9.62 L13.5,9.64 Z M20.5,14 C20.5,14.55 20.05,15 19.5,15 L15.5,15 C14.95,15 14.5,14.55 14.5,14 L14.5,9.62 C14.5,9.28 14.78,9 15.12,9 C15.46,9 15.74,9.28 15.74,9.62 L15.74,13.51 L16.87,13.51 L16.87,10.61 C16.87,10.26 17.15,9.99 17.49,9.99 C17.83,9.99 18.11,10.27 18.11,10.61 L18.11,13.5 L19.23,13.5 L19.23,9.62 C19.23,9.27 19.51,9 19.85,9 C20.19,9 20.47,9.28 20.47,9.62 L20.47,14 L20.5,14 Z" fill="#fff"></path>
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg> </a>
+<a class="social-link" href="#"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M3.513 18.998C4.749 15.504 8.082 13 12 13s7.251 2.504 8.487 5.998C18.47 21.442 15.417 23 12 23s-6.47-1.558-8.487-4.002zM12 12c2.21 0 4-2.79 4-5s-1.79-4-4-4-4 1.79-4 4 1.79 5 4 5z" fill="#FFF" /></g></svg></a>
+</div>
+</nav>
+<div id="search-form" class="hidden">
+<a style="padding:unset;">
+<form method="get" action="https://laptrinhx.com/search/">
+<label for="search" class="clip">Search Post</label>
+<input name="q" class="search-top" type="text" placeholder="Search Post for..." autocomplete="off" />
+</form>
+</a>
+</div>
+<div class="mn-more hidden">
+<ul class="submenu">
+<li class="nav-tools gradient-effect" role="menuitem"><a href="https://laptrinhx.com/page/tools/">Tools</a></li>
+<li class="nav-hacker-new gradient-effect" role="menuitem"><a href="https://laptrinhx.com/hackernews/" target="_blank" rel="noopener noreferrer">Hacker News</a></li>
+</ul>
+</div>
+<div class="dt-new-posts hidden">
+<ul class="submenu"></ul>
+</div> </div>
+</header><div class="christmas2"></div>
+<main id="site-main" class="site-main outer">
+<div class="inner">
+<article class="post-full post no-image">
+<header class="post-full-header">
+<section class="post-full-meta">
+<time class="post-full-meta-date gradient-effect" datetime="2020-05-21 14:56:53"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path d="M20 20h-4v-4h4v4zm-6-10h-4v4h4v-4zm6 0h-4v4h4v-4zm-12 6h-4v4h4v-4zm6 0h-4v4h4v-4zm-6-6h-4v4h4v-4zm16-8v22h-24v-22h3v1c0 1.103.897 2 2 2s2-.897 2-2v-1h10v1c0 1.103.897 2 2 2s2-.897 2-2v-1h3zm-2 6h-20v14h20v-14zm-2-7c0-.552-.447-1-1-1s-1 .448-1 1v2c0 .552.447 1 1 1s1-.448 1-1v-2zm-14 2c0 .552-.447 1-1 1s-1-.448-1-1v-2c0-.552.447-1 1-1s1 .448 1 1v2z" /></svg> <a href="https://laptrinhx.com/archive/2020-05-21/">21 May 2020</a></time>
+<span class="date-divider">/</span> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path d="M9.777 2l11.395 11.395-7.779 7.777-11.393-11.39v-7.782h7.777zm.828-2l-10.604.001v10.609l13.392 13.39 10.607-10.605-13.395-13.395zm-6.019 7.414c-.78-.781-.779-2.047.002-2.827.781-.782 2.047-.781 2.826-.003.783.783.782 2.049 0 2.83-.779.781-2.045.781-2.828 0zm5.824 7.947l-3.537-3.535.709-.707 3.535 3.535-.707.707zm4.242 0l-5.658-5.656.708-.708 5.657 5.657-.707.707zm2.121-2.121l-5.657-5.657.707-.707 5.657 5.657-.707.707z" /></svg>&nbsp;<span class="gradient-effect"><a href="https://laptrinhx.com/tag/mc-ai/">mc ai</a></span>
+<span class="date-divider">/</span> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 12v-6h-2v8h7v-2h-5z" /></svg>&nbsp;<span>1 min read</span>
+<span class="views"></span> </section>
+<h1 class="post-full-title">Handwritten Digit Recognition by using CNN</h1>
+</header> <div class="ads" style="text-align:center">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2026110378062824" data-ad-slot="5152953241" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>try{(adsbygoogle=window.adsbygoogle||[]).push({})}catch(e){}</script> </div>
+<section class="post-full-content">
+<div class="post-content"><p>Original article was published on <a href="https://laptrinhx.com/link/?l=https%3A%2F%2Fmedium.com%2F%40jackdani%2Fhandwritten-digit-recognition-by-using-cnn-99d3ca51ed4e%3Fsource%3Drss------deep_learning-5" target="_blank" rel="nofollow">Deep Learning on Medium</a></p>
+<div><img title="Handwritten Digit Recognition by using CNN - Jack Daniel - Medium" src="https://miro.medium.com/max/1000/1*CnNorCR4Zdq7pVchdsRGyw.png">
+<div>
+<div>
+<div>
+<p>
+<h1>Handwritten Digit Recognition by using CNN</h1>
+</div>
+<figure></figure>
+<p><em>We can recognize the hand written digits from the famous mnist dataset by using CNN.</em></p>
+<ol>
+<li><em>Import Dataset</em></li>
+<li><em>Data Preproessing</em></li>
+<li><em>Build CNN Model</em></li>
+</ol>
+<h1>1. Import Dataset</h1>
+<p>Import the mnist dataset from the keras library.</p>
+<figure></figure>
+<p>The input image have 28 X 28 pixels.</p>
+<p>Single handwritten image in the dataset.</p>
+<figure></figure>
+<figure></figure>
+<h1>2. <em>Data Preproessing</em></h1>
+<h2>Reshape</h2>
+<p>Reshape the input image into 1 dimension for the input layer of the neural networks.</p>
+<figure></figure>
+<p>Set the input shape of the image is (28,28,1) and the input data as the type of float32.</p>
+<figure></figure>
+<h2>Normalize the data</h2>
+<p>The pixels values is change from the range of 0 – 255 to 0 – 1 for the better accuracy of the neural networks.</p>
+<figure></figure>
+<p>Now the all pixel value is changed within the range of 0 – 1.</p>
+<figure></figure>
+<h2>One Hot Encoder</h2>
+<p>One Hot Encoder for the labels of the mnist dataset.</p>
+<figure></figure>
+<p>Now the label is have 10 values, it represented the digit from 0 – 9 .The input image digit position is have the value 1 and all other values is 0 in the label.</p>
+<p>Set the number of pixels and number of classes.</p>
+<figure></figure>
+<h1><em>3. Build CNN Model</em></h1>
+<h2>Import all packages</h2>
+<figure></figure>
+<p>The required packages are imported from the keras library. Then create the object for the keras model.</p>
+<h2>CNN Layers</h2>
+<p>Build the CNN layers.One way to improve the performance a Neural Network is to add more layers.</p>
+<figure></figure>
+<p>we use relu activation for the input layer and softmax activation for the output layers.</p>
+<h2>Compile the model</h2>
+<figure></figure>
+<p>The SGD optimizer is used with the learning rate is 0.01 for compile the neural network. The model summary shows the details of the neural network.</p>
+<figure></figure>
+<p>The input image pixels is 28 X 28 but the first convolutional layer input pixels is 26 X 26 because of the filters. The second layer have the 24 X 24 pixels.</p>
+<p>The filter is reduce the pixels because we don’t use the padding.The max pooling is reduce the pixels from the convolutional layer.</p>
+<h2>Train the model</h2>
+<figure></figure>
+<p>we can train the model with 10 epochs, i.e 10 iteration of the input data.</p>
+<h2>Evaluate the model</h2>
+<figure></figure>
+<p>The accuracy of the Convolutional Neural Network model is 98%.</p>
+<h2>Save and Load the model</h2>
+<figure></figure>
+<figure></figure>
+<figure></figure>
+<h2>Predictions</h2>
+<figure></figure>
+<figure></figure>
+<p>The predicted handwritten digit is Seven(7).</p>
+<p>If you want the full code, visit my Github page.</p>
+</div>
+</div>
+</div></div> <div class="source">
+ <hr>
+<span id="bookmark"></span>
+<span class="fb-like" data-href="https://laptrinhx.com/handwritten-digit-recognition-by-using-cnn-4252465561/" data-width="" data-layout="button" data-action="like" data-size="large" data-show-faces="true" data-share="false"></span>
+<span class="fb-save" data-uri="https://laptrinhx.com/handwritten-digit-recognition-by-using-cnn-4252465561/" data-size="large"></span>
+<span class="source-link">
+source: <a href="https://laptrinhx.com/link/?l=https%3A%2F%2Fmc.ai%2F%3Fp%3D108679" target="_blank" rel="noopener noreferrer">mc ai</a>
+</span>
+</div> </section>
+<section class="post-full-content">
+<div class="post-tags">
+<a href="https://laptrinhx.com/tag/mc-ai/">mc ai</a>
+</div>
+</section> <div class="ads" style="text-align:center">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2026110378062824" data-ad-slot="4218637378" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>try{(adsbygoogle=window.adsbygoogle||[]).push({})}catch(e){}</script> </div>
+<footer class="post-full-footer">
+<section class="author-card">
+<span class="user-icon" style="background-color:#77aa11">C</span> <section class="author-card-content">
+<h4 class="author-card-name"><a href="https://laptrinhx.com/author/chm/">CHM</a></h4>
+<p>Read <a href="https://laptrinhx.com/author/chm/">more posts</a> by this author.</p>
+</section>
+</section>
+<div class="post-full-footer-right">
+<a class="author-card-button" href="https://laptrinhx.com/author/chm/">Read More</a>
+</div>
+</footer>
+<div class="bn-breaking-news">
+<div class="bn-label"><a href="https://laptrinhx.com" style="color:#fff">Latest Posts</a></div>
+<div class="bn-news">
+<ul id="bn-news"></ul>
+</div>
+<div class="bn-controls">
+<button><span class="bn-arrow bn-prev"></span></button>
+<button><span class="bn-action"></span></button>
+<button><span class="bn-arrow bn-next"></span></button>
+</div>
+</div> <div id="block_quote"></div>
+<div class="fb-comments" data-href="https://laptrinhx.com/handwritten-digit-recognition-by-using-cnn-4252465561/" data-width="100%" data-numposts="7"></div>
+</article>
+</div>
+</main>
+<div class="bg-space1"></div>
+<script>
+    const RELATED_TAG  = 'mc-ai', RELATED_ID   = '4252465561', PUBLISHED_AT = '1590047813';
+</script>
+<aside class="read-next outer">
+<div class="inner">
+<div class="read-next-feed">
+<article class="read-next-card" style="background-image: url(https://laptrinhx.com/cdn/blog-cover.jpg)">
+<header class="read-next-card-header">
+<small class="read-next-card-header-sitetitle">&mdash; LaptrinhX &mdash;</small>
+<h3 class="read-next-card-header-title gradient-effect"><a href="https://laptrinhx.com/tag/mc-ai/">mc ai</a></h3>
+</header>
+<div class="read-next-divider">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+<path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5" />
+</svg> </div>
+<div class="read-next-card-content">
+<ul id="related-post"></ul>
+</div>
+<footer class="read-next-card-footer gradient-effect">
+<a href="https://laptrinhx.com/tag/mc-ai/"><span id="read-more"></span> →</a>
+</footer>
+</article>
+</div>
+</div>
+</aside><script type="text/javascript" src="https://cdn.amcharts.com/lib/4/core.js"></script><script type="text/javascript" src="https://cdn.amcharts.com/lib/4/charts.js"></script><script type="text/javascript" src="https://cdn.amcharts.com/lib/4/plugins/wordCloud.js"></script><script type="text/javascript" src="https://cdn.amcharts.com/lib/4/plugins/forceDirected.js"></script><div class="related-tag" style="background-image:url(/cdn/bg/bg-main3.svg);background-position:right"></div>
+<div id="cloudtags"></div>
+<div class="trending" style="background-image:url(/cdn/bg/bg-main3.svg);background-position:left"></div>
+<div id="cloudauthors"></div>
+<div class="last-post" style="background-image:url(/cdn/bg/bg-main1.svg);background-position:bottom"></div>
+<div class="floating-header">
+<div class="floating-header-logo">
+<a href="https://laptrinhx.com">
+<img src="https://laptrinhx.com/cdn/favicon.png" alt="LaptrinhX icon" />
+<span>LaptrinhX</span>
+</a>
+</div>
+<span class="floating-header-divider">&mdash;</span>
+<div class="floating-header-title">Handwritten Digit Recognition by using CNN</div>
+<div class="floating-header-share">
+<div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+<path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2" />
+</svg> </div>
+<a class="floating-header-share-tw" href="https://twitter.com/share?text=Handwritten+Digit+Recognition+by+using+CNN&url=https%3A%2F%2Flaptrinhx.com%2Fhandwritten-digit-recognition-by-using-cnn-4252465561%2F" onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;" title="Share by Twitter">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+<path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z" />
+</svg> </a>
+<a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flaptrinhx.com%2Fhandwritten-digit-recognition-by-using-cnn-4252465561%2F" onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;" title="Share by Facebook">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+<path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z" />
+</svg> </a>
+<button class="floating-header-share-fb bg-copy" onclick="copyToClipboard('https://laptrinhx.com/handwritten-digit-recognition-by-using-cnn-4252465561/')" title="Copy Link">
+<svg version="1.1" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M29.298,63.471l-4.048,4.02c-3.509,3.478-9.216,3.481-12.723,0c-1.686-1.673-2.612-3.895-2.612-6.257   s0.927-4.585,2.611-6.258l14.9-14.783c3.088-3.062,8.897-7.571,13.131-3.372c1.943,1.93,5.081,1.917,7.01-0.025   c1.93-1.942,1.918-5.081-0.025-7.009c-7.197-7.142-17.834-5.822-27.098,3.37L5.543,47.941C1.968,51.49,0,56.21,0,61.234   s1.968,9.743,5.544,13.292C9.223,78.176,14.054,80,18.887,80c4.834,0,9.667-1.824,13.348-5.476l4.051-4.021   c1.942-1.928,1.953-5.066,0.023-7.009C34.382,61.553,31.241,61.542,29.298,63.471z M74.454,6.044   c-7.73-7.67-18.538-8.086-25.694-0.986l-5.046,5.009c-1.943,1.929-1.955,5.066-0.025,7.009c1.93,1.943,5.068,1.954,7.011,0.025   l5.044-5.006c3.707-3.681,8.561-2.155,11.727,0.986c1.688,1.673,2.615,3.896,2.615,6.258c0,2.363-0.928,4.586-2.613,6.259   l-15.897,15.77c-7.269,7.212-10.679,3.827-12.134,2.383c-1.943-1.929-5.08-1.917-7.01,0.025c-1.93,1.942-1.918,5.081,0.025,7.009   c3.337,3.312,7.146,4.954,11.139,4.954c4.889,0,10.053-2.462,14.963-7.337l15.897-15.77C78.03,29.083,80,24.362,80,19.338   C80,14.316,78.03,9.595,74.454,6.044z" /><g /></svg> </button>
+</div>
+<progress id="reading-progress" class="progress" value="0">
+<div class="progress-container">
+<span class="progress-bar"></span>
+</div>
+</progress>
+</div><div id="fb-root"></div>
+<script type="text/javascript" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3&appId=207946532970943" async defer crossorigin="anonymous"></script><div class="christmas2"></div> <footer class="site-footer outer no-image">
+<div class="site-footer-content inner">
+<section class="copyright"><a href="https://laptrinhx.com">LaptrinhX</a> &copy; 2021</section>
+<nav class="site-footer-nav">
+<a href="https://laptrinhx.com">Latest Posts</a>
+<a href="https://bdev.dev" target="_blank" rel="noopener noreferrer">bdev.dev</a>
+<a href="https://raoxyz.com" target="_blank" rel="noopener noreferrer">raoxyz</a>
+<a href="https://congtyaz.com" target="_blank" rel="noopener noreferrer">congtyaz</a>
+</nav>
+</div>
+</footer> </div>
+<script type="text/javascript" src="https://laptrinhx.com/cdn/script.js?v=0.905"></script> </body>
+</html>
